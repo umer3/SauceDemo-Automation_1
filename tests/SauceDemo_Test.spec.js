@@ -115,3 +115,9 @@ test('@regression Place Order with invalid card number', async function({page}){
 
 });
     
+test('@regression Catalog displays a product', async function ({page}) {
+    const catalog = new order_cls(page);
+    await catalog.navigate_main_page();
+    await catalog.catalog_navigation_page();
+    await expect(catalog.product_to_order).toBeVisible();
+});
